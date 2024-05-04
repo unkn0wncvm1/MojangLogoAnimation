@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "io.github.hashibutogarasu.mla.mixin.client",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "ExampleClientMixin",
+    "SplashOverlayMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}
