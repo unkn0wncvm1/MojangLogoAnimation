@@ -20,6 +20,9 @@
 		],
 		"client": [
 			"io.github.hashibutogarasu.mla.MojangLogoAnimationClient"
+		],
+		"modmenu": [
+			"io.github.hashibutogarasu.mla.ModMenuIntegration"
 		]
 	},
 	"mixins": [

@@ -3,5 +3,10 @@
     "sounds": [
       "mla:mojang_sound"
     ]
+  },
+  "mojang_april_fool_sound": {
+    "sounds": [
+      "mla:mojang_april_fool_sound"
+    ]
   }
 }

@@ -14,6 +14,7 @@ public class MojangLogoAnimation implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		Registry.register(Registries.SOUND_EVENT, ModSounds.MOJANG_SOUND, ModSounds.MOJANG_SOUND_EVENT);
+		Registry.register(Registries.SOUND_EVENT, ModSounds.MOJANG_LOGO_SOUND, ModSounds.MOJANG_LOGO_SOUND_EVENT);
+		Registry.register(Registries.SOUND_EVENT, ModSounds.MOJANG_APRIL_FOOL_SOUND, ModSounds.MOJANG_APRIL_FOOL_SOUND_EVENT);
 	}
 }

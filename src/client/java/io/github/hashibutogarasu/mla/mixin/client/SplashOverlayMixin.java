@@ -1,6 +1,7 @@
 package io.github.hashibutogarasu.mla.mixin.client;
 
-import io.github.hashibutogarasu.mla.MojangLogoAnimation;
+import io.github.hashibutogarasu.mla.MojangLogoAnimationClient;
+import io.github.hashibutogarasu.mla.config.ModConfig;
 import io.github.hashibutogarasu.mla.sounds.ModSounds;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
@@ -46,18 +47,22 @@ public abstract class SplashOverlayMixin {
     private int animProgress = 0;
 
     @Unique
-    private final Identifier tex = new Identifier("textures/gui/title/mojangstudios.png");
-
-    @Unique
     private boolean playing = false;
 
     @Unique
-    private final PositionedSoundInstance SOUND = PositionedSoundInstance.master(ModSounds.MOJANG_SOUND_EVENT, 1.0f, 1.0f);
+    private final PositionedSoundInstance MOJANG_SOUND = PositionedSoundInstance.master(mode == ModConfig.Mode.MOJANG_STUDIOS ? ModSounds.MOJANG_LOGO_SOUND_EVENT : ModSounds.MOJANG_APRIL_FOOL_SOUND_EVENT, 1.0f, 1.0f);
+    @Unique
+    private static ModConfig.Mode mode;
+
+    @Inject(method = "init", at = @At(value = "RETURN"))
+    private static void init(CallbackInfo ci) {
+        mode = MojangLogoAnimationClient.config.mode;
+    }
 
     @Redirect(method = "render",
             at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/screen/SplashOverlay;LOGO:Lnet/minecraft/util/Identifier;"))
     private Identifier logo() {
-        return tex;
+        return mode == ModConfig.Mode.MOJANG_STUDIOS ? getMojang(this.animProgress) : getAprilfool(this.animProgress);
     }
 
     @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/resource/ResourceReload;getProgress()F"))
@@ -79,15 +84,15 @@ public abstract class SplashOverlayMixin {
         if(progress > 0){
             if(!animationStarting && firstLoad){
                 this.reload.whenComplete().thenAccept(object -> {
-                    client.getSoundManager().play(SOUND);
+                    client.getSoundManager().play(MOJANG_SOUND);
                     getAnimationThread().start();
                 });
                 animationStarting = true;
             }
         }
 
-        this.playing = client.getSoundManager().isPlaying(SOUND);
-        context.drawTexture(getMojang(this.animProgress), x, y, r, (int) d, u, v, regionWidth, regionHeight + 60, textureWidth, textureHeight);
+        this.playing = client.getSoundManager().isPlaying(MOJANG_SOUND);
+        context.drawTexture(mode == ModConfig.Mode.MOJANG_STUDIOS ? getMojang(this.animProgress) : getAprilfool(this.animProgress), x, y, r, (int) d, u, v, regionWidth, regionHeight + 60, textureWidth, textureHeight);
     }
 
     @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawTexture(Lnet/minecraft/util/Identifier;IIIIFFIIII)V", ordinal = 1))
@@ -108,6 +113,11 @@ public abstract class SplashOverlayMixin {
     @Unique
     private Identifier getMojang(int index){
         return firstLoad ? new Identifier("mla", "textures/gui/title/mojang/mojang" + index + ".png") : new Identifier("mla", "textures/gui/title/mojang/mojang38.png");
+    }
+
+    @Unique
+    private Identifier getAprilfool(int index){
+        return firstLoad ? new Identifier("mla", "textures/gui/title/mojang_april_fool/mojang" + index + ".png") : new Identifier("mla", "textures/gui/title/mojang/mojang38.png");
     }
 
     @Unique
