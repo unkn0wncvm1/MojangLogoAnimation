@@ -3,10 +3,14 @@
 	"id": "mla",
 	"version": "${version}",
 	"name": "MojangLogoAnimation",
-	"description": "",
+	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"Hashibutogarasu"
+		"Me!"
 	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
 	"license": "CC0-1.0",
 	"icon": "assets/mla/icon.png",
 	"environment": "*",
@@ -30,8 +34,8 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.15.10",
-		"minecraft": "~1.20.5",
-		"java": ">=21",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
 		"fabric-api": "*"
 	},
 	"suggests": {
