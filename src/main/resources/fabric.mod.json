@@ -3,9 +3,9 @@
 	"id": "mla",
 	"version": "${version}",
 	"name": "MojangLogoAnimation",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "",
 	"authors": [
-		"Me!"
+		"Hashibutogarasu"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
