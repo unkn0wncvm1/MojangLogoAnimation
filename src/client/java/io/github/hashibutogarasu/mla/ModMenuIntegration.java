@@ -1,12 +1,13 @@
 package io.github.hashibutogarasu.mla;
 
-//public class ModMenuIntegration implements ModMenuApi {
-//    @Override
-//    public ConfigScreenFactory<?> getModConfigScreenFactory() {
-//        return parent -> AutoConfig.getConfigScreen(ModConfig.class, parent).get();
-//    }
-//}
+import com.terraformersmc.modmenu.api.ConfigScreenFactory;
+import com.terraformersmc.modmenu.api.ModMenuApi;
+import io.github.hashibutogarasu.mla.config.ModConfig;
+import me.shedaniel.autoconfig.AutoConfig;
 
-public class ModMenuIntegration{
-
+public class ModMenuIntegration implements ModMenuApi {
+    @Override
+    public ConfigScreenFactory<?> getModConfigScreenFactory() {
+        return parent -> AutoConfig.getConfigScreen(ModConfig.class, parent).get();
+    }
 }
