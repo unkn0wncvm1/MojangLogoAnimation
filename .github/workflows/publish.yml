@@ -32,7 +32,9 @@ jobs:
         name: Create local.propertes
         run: |
           echo -e "CURSEFORGE_API_KEY=${{ secrets.CURSEFORGE_API_KEY }}\nCURSEFORGE_PROJECT_ID=${{ secrets.CURSEFORGE_PROJECT_ID }}" > ./local.properties
-      - name: build
+      - name: Build
+        run: ./gradlew build
+      - name: Curseforge
         run: ./gradlew curseforge
       - name: capture build artifacts
         if: ${{ matrix.java == '21' }} # Only upload artifacts built from latest java
