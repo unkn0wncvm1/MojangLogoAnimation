@@ -28,6 +28,7 @@ jobs:
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
       - shell: bash
+        name: Create local.propertes
         env:
           CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
           CURSEFORGE_PROJECT_ID: ${{ secrets.CURSEFORGE_PROJECT_ID }}
