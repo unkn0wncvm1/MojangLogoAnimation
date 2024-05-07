@@ -97,11 +97,11 @@ publishing {
 
 
 curseforge {
-	apiKey = properties.get("CURSEFORGE_API_KEY") // This should really be in a gradle.properties file
+	apiKey = System.getenv("CURSEFORGE_API_KEY") // This should really be in a gradle.properties file
 	project {
-		id = properties.get("CURSEFORGE_PROJECT_ID")
+		id = System.getenv("CURSEFORGE_PROJECT_ID")
 		changelog = 'Changes' // A file can also be set using: changelog = file('changelog.txt')
-		releaseType = properties.get("CURSEFORGE_RELEASE_TYPE")
+		releaseType = "beta"
 		addGameVersion project.minecraft_version
 	}
 }
