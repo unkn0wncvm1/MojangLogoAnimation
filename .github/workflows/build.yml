@@ -17,11 +17,12 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: create local.properties
+        run: |
+          echo 'CURSEFORGE_API_KEY=$CURSEFORGE_API_KEY CURSEFORGE_PROJECT_ID=$CURSEFORGE_PROJECT_ID CURSEFORGE_RELEASE_TYPE=$CURSEFORGE_RELEASE_TYPE' > ./local.properties
         env:
           CURSEFORGE_API_KEY: ${{secrets.CURSEFORGE_API_KEY}}
           CURSEFORGE_PROJECT_ID: ${{ secrets.CURSEFORGE_PROJECT_ID}}
           CURSEFORGE_RELEASE_TYPE: ${{secrets.CURSEFORGE_RELEASE_TYPE}}
-        run: echo 'CURSEFORGE_API_KEY=${{ env.CURSEFORGE_API_KEY }} CURSEFORGE_PROJECT_ID=${{ env.CURSEFORGE_PROJECT_ID }} CURSEFORGE_RELEASE_TYPE=${{ env.CURSEFORGE_RELEASE_TYPE }}' > ./local.properties
       - name: checkout repository
         uses: actions/checkout@v4
       - name: validate gradle wrapper
