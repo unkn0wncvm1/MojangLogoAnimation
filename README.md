@@ -9,9 +9,5 @@ This mod changes loading screen.
 <span style="color: red">This mod requires Cloth Config API.</span>
 
 ## Preview
-
-Mojang Studio Mode
 ![MojangStudioMode](https://raw.githubusercontent.com/Hashibutogarasu/MojangLogoAnimation-Assets/main/mojang_studios.gif)
-
-April Fool 3d ShareWare Mode
 ![3dSharewareMode](https://raw.githubusercontent.com/Hashibutogarasu/MojangLogoAnimation-Assets/main/april_fool.gif)
