@@ -40,5 +40,4 @@ replay_*.log
 *.jfr
 
 local.properties
-
-.env
+*.env
