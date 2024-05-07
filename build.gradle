@@ -1,13 +1,15 @@
 plugins {
 	id 'fabric-loom' version '1.6-SNAPSHOT'
 	id 'maven-publish'
+	id 'com.palantir.git-version' version '3.0.0'
 }
 
-version = project.mod_version
+//version = project.mod_version
+version = gitVersion()
 group = project.maven_group
 
 base {
-	archivesName = project.archives_base_name
+	archivesName = project.archives_base_name + "-" + "Fabric"
 }
 
 repositories {
