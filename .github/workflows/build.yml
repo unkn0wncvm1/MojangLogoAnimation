@@ -31,7 +31,7 @@ jobs:
       - shell: bash
         name: Create local.propertes
         run: |
-          echo "CURSEFORGE_API_KEY=${{ secrets.CURSEFORGE_API_KEY }}\nCURSEFORGE_PROJECT_ID=${{ secrets.CURSEFORGE_PROJECT_ID }}" | base64 --decode > ./local.properties
+          echo -e "CURSEFORGE_API_KEY=${{ secrets.CURSEFORGE_API_KEY }}\nCURSEFORGE_PROJECT_ID=${{ secrets.CURSEFORGE_PROJECT_ID }}" > ./local.properties
       - name: build
         run: ./gradlew build
 
