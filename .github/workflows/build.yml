@@ -28,11 +28,11 @@ jobs:
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
       - name: Create local.properties
-        run: |
-          echo CURSEFORGE_API_KEY=$CURSEFORGE_API_KEY CURSEFORGE_PROJECT_ID=$CURSEFORGE_PROJECT_ID > ./local.properties
         env:
-          CURSEFORGE_API_KEY: ${{secrets.CURSEFORGE_API_KEY}}
-          CURSEFORGE_PROJECT_ID: ${{ secrets.CURSEFORGE_PROJECT_ID}}
+          CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
+          CURSEFORGE_PROJECT_ID: ${{ secrets.CURSEFORGE_PROJECT_ID }}
+        run: |
+          echo "CURSEFORGE_API_KEY=$CURSEFORGE_API_KEY CURSEFORGE_PROJECT_ID=$CURSEFORGE_PROJECT_ID" > ./local.properties
       - name: build
         run: ./gradlew build
 
