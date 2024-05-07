@@ -1,3 +1,6 @@
 [submodule "src/main/resources/assets/mla"]
 	path = src/main/resources/assets/mla
 	url = https://github.com/Hashibutogarasu/MojangLogoAnimation-Assets.git
+[submodule ".github"]
+	path = .github
+	url = https://github.com/Hashibutogarasu/MojangLogoAnimation-github-workflows
