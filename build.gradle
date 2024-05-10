@@ -102,6 +102,7 @@ publishMods {
 	modLoaders.add("fabric")
 
 	curseforge {
+		displayName = project.mod_name + "-Fabric-" + project.minecraft_version + "-" + version
 		projectId = properties.get("CURSEFORGE_PROJECT_ID")
 		projectSlug = "mojang-logo-animation" // Required for discord webhook
 		accessToken = properties.get("CURSEFORGE_API_KEY")
