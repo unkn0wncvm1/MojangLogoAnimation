@@ -96,7 +96,6 @@ publishing {
 }
 
 publishMods {
-	displayName = project.mod_name + "-Fabric-" + project.minecraft_version + "-" + version
 	file = remapJar.archiveFile
 	changelog = "Added mod requires"
 	type = BETA
