@@ -102,11 +102,11 @@ publishMods {
 	modLoaders.add("fabric")
 
 	curseforge {
-		displayName = project.mod_name + project.minecraft_version + " Fabric " + version
+		displayName = mod_name + "-Fabric-" + minecraft_version + "-" + version.get()
 		projectId = properties.get("CURSEFORGE_PROJECT_ID")
 		projectSlug = "mojang-logo-animation" // Required for discord webhook
 		accessToken = properties.get("CURSEFORGE_API_KEY")
-		minecraftVersions.add("${project.minecraft_version}")
+		minecraftVersions.add("${minecraft_version}")
 		requires("fabric-api", "cloth-config")
 	}
 }
