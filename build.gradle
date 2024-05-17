@@ -1,3 +1,5 @@
+import me.modmuss50.mpp.ReleaseType
+
 plugins {
 	id 'fabric-loom' version '1.6-SNAPSHOT'
 	id 'maven-publish'
@@ -98,7 +100,7 @@ publishing {
 publishMods {
 	file = remapJar.archiveFile
 	changelog = "Changed displayName"
-	type = BETA
+	type = ReleaseType.STABLE
 	modLoaders.add("fabric")
 
 	curseforge {
