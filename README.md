@@ -1,8 +1,5 @@
 # Mojang Logo Animation
-
-**Disclaimer:** "This fork is for personal use only. I do not intend to maintain it or provide support. Please do not expect any updates or assistance."
-
-**Original:** [MojangLogoAnimation](https://github.com/Hashibutogarasu/MojangLogoAnimation)
+### Requires [Cloth Config API](https://modrinth.com/mod/cloth-config)
 
 ## Preview
 ![MojangStudioMode](https://raw.githubusercontent.com/Hashibutogarasu/MojangLogoAnimation-Assets/main/mojang_studios.gif)
